@@ -1,0 +1,9 @@
+/* Bootstrapを使っているため、CSSは最小限にする */
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* native dialog centered styling support */
+dialog {
+  margin: auto;
+}

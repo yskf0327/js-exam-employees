@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>社員情報管理システム</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-light">
+  <div class="container py-5">
+    <h1 class="mb-4 text-center">社員情報一覧</h1>
+
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="department-filter" class="col-form-label fw-bold">部署で絞り込み:</label>
+          </div>
+          <div class="col-auto">
+            <select id="department-filter" class="form-select">
+              <option value="">すべて</option>
+              <option value="開発部">開発部</option>
+              <option value="インフラ部">インフラ部</option>
+              <option value="デザイン部">デザイン部</option>
+              <option value="UI/UX部">UI/UX部</option>
+              <option value="モバイル部">モバイル部</option>
+              <option value="R&D部">R&D部</option>
+              <option value="営業部">営業部</option>
+              <option value="総務部">総務部</option>
+              <option value="人事部">人事部</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <table class="table table-striped table-hover align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th>社員番号</th>
+              <th>氏名</th>
+              <th>部署</th>
+              <th>年齢</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="employee-list">
+            <!-- ここにJavaScriptでリストを表示 -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 詳細表示用モーダル -->
+  <dialog id="detail-modal" class="p-0 border-0 rounded shadow-lg">
+    <div class="modal-content" style="width: 500px; max-width: 90vw;">
+      <div class="modal-header bg-light p-3 border-bottom d-flex justify-content-between align-items-center">
+        <h5 class="modal-title m-0">社員詳細情報</h5>
+      </div>
+      <div class="modal-body p-4">
+        <div class="mb-2 row">
+          <span class="fw-bold col-4">社員番号:</span>
+          <span id="modal-id" class="col-8"></span>
+        </div>
+        <div class="mb-2 row">
+          <span class="fw-bold col-4">氏名:</span>
+          <span id="modal-name" class="col-8"></span>
+        </div>
+        <div class="mb-2 row">
+          <span class="fw-bold col-4">生年月日:</span>
+          <span class="col-8">
+            <span id="modal-birth"></span> (<span id="modal-age"></span>歳)
+          </span>
+        </div>
+        <div class="mb-2 row">
+          <span class="fw-bold col-4">部署:</span>
+          <span id="modal-dept" class="col-8"></span>
+        </div>
+        <div class="mb-3 row">
+          <span class="fw-bold col-4">保有資格:</span>
+          <ul id="modal-licenses" class="col-8 list-unstyled mb-0"></ul>
+        </div>
+        <div class="alert alert-success d-flex justify-content-between align-items-center m-0">
+          <span class="fw-bold">総支給額:</span>
+          <span class="fs-5 fw-bold"><span id="modal-salary"></span>円</span>
+        </div>
+      </div>
+      <div class="modal-footer p-3 border-top text-end">
+        <button id="close-modal-btn" class="btn btn-secondary">閉じる</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

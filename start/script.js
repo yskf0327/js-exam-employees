@@ -29,7 +29,7 @@ const SALARY_TABLE = {
 // 初期化処理
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 一覧表示
+  // 一覧表示 (最初は全員)
   renderTable();
 
   // TODO: 部署フィルターのイベント処理を実装する
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**
  * 社員一覧テーブルを描画する
- * @param {Array} list - 表示する社員リスト
+ * @param {Array} list - 表示する社員リスト (引数がない場合は全社員)
  */
 function renderTable(list = employees) {
   const listBody = document.getElementById('employee-list');
